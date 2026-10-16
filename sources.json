@@ -1,0 +1,186 @@
+[
+  {
+    "id": "cnbc-tech",
+    "name": "CNBC Technology",
+    "category": "news",
+    "url": "https://www.cnbc.com/id/19854910/device/rss/rss.html",
+    "homepage": "https://www.cnbc.com/technology/",
+    "allowed_hosts": [
+      "www.cnbc.com",
+      "cnbc.com"
+    ],
+    "min_interval_minutes": 60,
+    "enabled": true
+  },
+  {
+    "id": "bbc-tech",
+    "name": "BBC Technology",
+    "category": "news",
+    "url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+    "homepage": "https://www.bbc.com/news/technology",
+    "allowed_hosts": [
+      "feeds.bbci.co.uk",
+      "www.bbc.co.uk",
+      "bbc.co.uk",
+      "www.bbc.com",
+      "bbc.com"
+    ],
+    "enabled": false
+  },
+  {
+    "id": "apple",
+    "name": "Apple Newsroom",
+    "category": "newsroom",
+    "company_ticker": "AAPL",
+    "url": "https://www.apple.com/newsroom/rss-feed.rss",
+    "homepage": "https://www.apple.com/newsroom/",
+    "allowed_hosts": [
+      "www.apple.com",
+      "apple.com"
+    ],
+    "enabled": true
+  },
+  {
+    "id": "nvidia",
+    "name": "NVIDIA Newsroom",
+    "category": "newsroom",
+    "company_ticker": "NVDA",
+    "url": "https://nvidianews.nvidia.com/releases.xml",
+    "homepage": "https://nvidianews.nvidia.com/",
+    "allowed_hosts": [
+      "nvidianews.nvidia.com",
+      "blogs.nvidia.com"
+    ],
+    "enabled": true
+  },
+  {
+    "id": "microsoft",
+    "name": "Microsoft Official Blog",
+    "category": "newsroom",
+    "company_ticker": "MSFT",
+    "url": "https://blogs.microsoft.com/feed/",
+    "homepage": "https://blogs.microsoft.com/",
+    "allowed_hosts": [
+      "blogs.microsoft.com",
+      "news.microsoft.com"
+    ],
+    "enabled": true,
+    "min_interval_minutes": 10
+  },
+  {
+    "id": "google",
+    "name": "Google Official Blog",
+    "category": "newsroom",
+    "company_ticker": "GOOGL",
+    "url": "https://blog.google/rss/",
+    "homepage": "https://blog.google/",
+    "allowed_hosts": [
+      "blog.google"
+    ],
+    "enabled": true
+  },
+  {
+    "id": "ftc",
+    "name": "FTC Press Releases",
+    "category": "regulator",
+    "url": "https://www.ftc.gov/feeds/press-release.xml",
+    "homepage": "https://www.ftc.gov/news-events/news/press-releases",
+    "allowed_hosts": [
+      "www.ftc.gov",
+      "ftc.gov"
+    ],
+    "requires_ticker": true,
+    "enabled": false
+  },
+  {
+    "id": "sec",
+    "name": "SEC Press Releases",
+    "category": "regulator",
+    "url": "https://www.sec.gov/news/pressreleases.rss",
+    "homepage": "https://www.sec.gov/newsroom/press-releases",
+    "allowed_hosts": [
+      "www.sec.gov",
+      "sec.gov"
+    ],
+    "requires_ticker": true,
+    "enabled": true
+  },
+  {
+    "id": "amd-ir",
+    "name": "AMD Investor Relations",
+    "category": "newsroom",
+    "company_ticker": "AMD",
+    "url": "https://ir.amd.com/news-events/press-releases/rss",
+    "homepage": "https://ir.amd.com/news-events/press-releases?category=all",
+    "allowed_hosts": [
+      "ir.amd.com"
+    ],
+    "min_interval_minutes": 5,
+    "enabled": true
+  },
+  {
+    "id": "intel-ir",
+    "name": "Intel Investor Relations",
+    "category": "newsroom",
+    "company_ticker": "INTC",
+    "url": "https://www.intc.com/news-events/press-releases/rss",
+    "homepage": "https://www.intc.com/news-events/email-alerts",
+    "allowed_hosts": [
+      "www.intc.com"
+    ],
+    "min_interval_minutes": 5,
+    "enabled": true
+  },
+  {
+    "id": "meta-ir",
+    "name": "Meta Investor Relations",
+    "category": "newsroom",
+    "company_ticker": "META",
+    "url": "https://investor.atmeta.com/rss/pressrelease.aspx",
+    "homepage": "https://investor.atmeta.com/resources/email-alerts-and-rss/default.aspx",
+    "allowed_hosts": [
+      "investor.atmeta.com"
+    ],
+    "min_interval_minutes": 5,
+    "enabled": true
+  },
+  {
+    "id": "oracle-ir",
+    "name": "Oracle Investor Relations",
+    "category": "newsroom",
+    "company_ticker": "ORCL",
+    "url": "https://investor.oracle.com/rss/pressrelease.aspx",
+    "homepage": "https://www.oracle.com/ie/corporate/rss/",
+    "allowed_hosts": [
+      "investor.oracle.com"
+    ],
+    "min_interval_minutes": 5,
+    "enabled": true
+  },
+  {
+    "id": "aws-news-blog",
+    "name": "AWS News Blog",
+    "category": "newsroom",
+    "company_ticker": "AMZN",
+    "url": "https://aws.amazon.com/blogs/aws/feed/",
+    "homepage": "https://aws.amazon.com/blogs/aws/heads-up-aws-news-blog-rss-feed-change/",
+    "allowed_hosts": [
+      "aws.amazon.com"
+    ],
+    "min_interval_minutes": 5,
+    "enabled": true
+  },
+  {
+    "id": "meta-newsroom",
+    "name": "Meta Newsroom",
+    "category": "newsroom",
+    "company_ticker": "META",
+    "url": "https://about.fb.com/feed/",
+    "homepage": "https://about.fb.com/news/",
+    "allowed_hosts": [
+      "about.fb.com"
+    ],
+    "min_interval_minutes": 5,
+    "enabled": true
+  }
+]

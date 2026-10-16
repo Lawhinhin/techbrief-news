@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Your own quiet corner for tech news. Collect trusted feeds, follow companies, and send updates to Telegram.">
+  <title>TechBrief — News collector</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#news"><span class="brand-mark" aria-hidden="true">tb<span>·</span></span><span>TechBrief<small>Your news, on your terms</small></span></a>
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="nav-links" aria-label="Views">
+        <a href="#news" data-view="news" class="nav-link active" aria-current="page"><span aria-hidden="true">▤</span> News <span id="nav-count" class="nav-count">0</span></a>
+        <a href="#sources" data-view="sources" class="nav-link"><span aria-hidden="true">◉</span> Sources</a>
+        <a href="#telegram" data-view="telegram" class="nav-link"><span aria-hidden="true">↗</span> Telegram</a>
+        <a href="#settings" data-view="settings" class="nav-link"><span aria-hidden="true">⚙</span> Settings</a>
+      </nav>
+      <div class="sidebar-bottom"><span class="local-dot" aria-hidden="true"></span><div>Made for your own machine<small>Local dashboard · Personal delivery</small></div></div>
+    </aside>
+
+    <main id="main" class="main" tabindex="-1">
+      <header class="topbar"><span class="workspace-label">YOUR PERSONAL NEWSROOM</span><span id="connection" class="connection"><span class="status-dot"></span> Connecting…</span></header>
+      <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+
+      <section id="view-news" class="view" aria-labelledby="news-title">
+        <div class="page-heading"><div><p class="eyebrow">LESS NOISE. MORE SIGNAL.</p><h1 id="news-title">Your tech briefing.</h1><p class="page-description">Fresh headlines from the sources you choose, in one place.</p></div><button id="scan-button" class="button button-primary" type="button"><span aria-hidden="true">↻</span> Check for news</button></div>
+        <div class="stats-grid" aria-label="Collector overview">
+          <div class="stat-card"><span class="stat-label">COLLECTED ARTICLES</span><strong id="article-count">—</strong><span class="stat-description">Saved in your local library</span></div>
+          <div class="stat-card"><span class="stat-label">ACTIVE SOURCES</span><strong id="source-count">—</strong><span id="source-description" class="stat-description">Waiting for collector</span></div>
+          <div class="stat-card"><span class="stat-label">TELEGRAM DELIVERY</span><strong id="telegram-overview">—</strong><span id="telegram-description" class="stat-description">Connect your own bot</span></div>
+        </div>
+        <section id="onboarding" class="onboarding" aria-labelledby="welcome-title" hidden><div class="welcome-heading"><div><p class="eyebrow">A FRESH START</p><h2 id="welcome-title">Build your own briefing.</h2><p>A few small steps, then TechBrief takes care of the routine.</p></div><span class="welcome-art" aria-hidden="true">✦</span></div><ol class="setup-steps"><li><span class="step-number">01</span><div><h3>Choose your interests</h3><p>Select the companies and sources you want to follow.</p><a href="#settings">Personalize your feed <span aria-hidden="true">→</span></a></div></li><li><span class="step-number">02</span><div><h3>Collect your first headlines</h3><p>Check your selected sources to start your local library.</p><button type="button" id="first-scan" class="text-button">Check for news <span aria-hidden="true">→</span></button></div></li><li><span class="step-number">03</span><div><h3>Take it to Telegram</h3><p>Connect your bot to receive updates where you already read.</p><a href="#telegram">Connect Telegram <span aria-hidden="true">→</span></a></div></li></ol></section>
+        <section class="news-library" aria-labelledby="library-title"><div class="section-heading"><h2 id="library-title">Latest headlines</h2><span id="last-scan" class="muted">No completed checks yet</span></div><form id="filter-form" class="filter-bar" role="search"><label class="search-field"><span aria-hidden="true">⌕</span><span class="sr-only">Search headlines</span><input id="search" type="search" placeholder="Search headlines or keywords…" autocomplete="off" maxlength="200"></label><label><span class="sr-only">Filter by company</span><select id="ticker-filter"><option value="">All companies</option></select></label><label><span class="sr-only">Filter by source</span><select id="source-filter"><option value="">All sources</option></select></label><button class="button button-secondary" type="submit">Filter</button></form><div class="library-meta"><span id="results-count">Loading your library…</span><a class="export-link" href="/api/export.csv" download>Export CSV <span aria-hidden="true">↓</span></a></div><div id="articles" class="articles" aria-live="polite"><div class="empty-state"><span class="empty-symbol" aria-hidden="true">▤</span><h3>Loading your briefing</h3><p>Connecting to your local collector.</p></div></div><div class="pagination"><button id="previous-page" type="button" class="button button-secondary" disabled>← Newer</button><span id="page-label" class="muted"></span><button id="next-page" type="button" class="button button-secondary" disabled>Older →</button></div></section>
+      </section>
+
+      <section id="view-sources" class="view" aria-labelledby="sources-title" hidden><div class="page-heading"><div><p class="eyebrow">KNOW WHERE IT COMES FROM</p><h1 id="sources-title">Your sources.</h1><p class="page-description">See which feeds are working and when they were last checked.</p></div><a href="#settings" class="button button-primary">Manage sources</a></div><div class="info-banner"><span aria-hidden="true">ⓘ</span><p>Updates arrive when a publisher’s feed makes them available. A feed check is not a guarantee of instant news.</p></div><div id="sources-list" class="source-grid"><p class="muted">Loading sources…</p></div></section>
+
+      <section id="view-telegram" class="view" aria-labelledby="telegram-title" hidden>
+        <div class="page-heading"><div><p class="eyebrow">HEADLINES, DELIVERED</p><h1 id="telegram-title">Meet your inbox.</h1><p class="page-description">Connect your own Telegram bot for personal news updates.</p></div><span id="telegram-badge" class="pill">Not connected</span></div>
+        <div class="two-column">
+          <section class="panel">
+            <div class="panel-heading"><span class="panel-icon" aria-hidden="true">↗</span><div><h2>Connect Telegram</h2><p>Your credentials stay on this installation.</p></div></div>
+            <ol class="instructions">
+              <li>Open Telegram and message <a href="https://t.me/BotFather" target="_blank" rel="noopener noreferrer">@BotFather</a>.</li>
+              <li>Send <code>/newbot</code>, follow the steps, and copy the bot token.</li>
+              <li>Send the one-time command below privately to your new bot.</li>
+              <li>Paste the token and click <strong>Connect</strong>. An explicit Chat ID can be used instead of private pairing.</li>
+            </ol>
+            <div id="pairing-box" class="pairing-box" hidden><h3>First, pair your private chat</h3><p>Open your bot in Telegram and send this before clicking Connect:</p><code id="pairing-command"></code><p class="small muted">Keep this command private. Each new connection requires the current command, unless you supply an explicit Chat ID.</p></div>
+            <form id="telegram-form" class="stack-form">
+              <label for="bot-token">Bot token <span class="optional">(required for every connection)</span></label>
+              <input id="bot-token" name="token" type="password" placeholder="Paste your bot token" autocomplete="new-password" spellcheck="false" required>
+              <label for="chat-id">Chat ID <span class="optional">(optional — leave blank after private pairing)</span></label>
+              <input id="chat-id" name="chat_id" type="text" placeholder="Numeric Chat ID, or leave blank" autocomplete="off" spellcheck="false">
+              <label class="checkbox-row"><input id="telegram-enabled" type="checkbox"><span>Enable news delivery</span></label>
+              <button class="button button-primary" type="submit">Connect</button>
+            </form>
+            <div class="test-row"><p>Send one test message to confirm delivery.</p><button id="telegram-test" class="button button-secondary" type="button" disabled>Send test message</button></div>
+          </section>
+          <section class="panel"><div class="panel-heading"><span class="panel-icon" aria-hidden="true">✓</span><div><h2>Delivery activity</h2><p>Keep an eye on your latest updates.</p></div></div><div class="delivery-stats"><div><strong id="delivery-sent">—</strong><span>Delivered</span></div><div><strong id="delivery-pending">—</strong><span>Pending</span></div><div><strong id="delivery-failed">—</strong><span>Failed</span></div></div><div id="delivery-list" class="delivery-list"><p class="muted">No delivery activity yet.</p></div></section>
+        </div>
+      </section>
+
+      <section id="view-settings" class="view" aria-labelledby="settings-title" hidden><div class="page-heading"><div><p class="eyebrow">MAKE IT YOURS</p><h1 id="settings-title">A briefing that fits.</h1><p class="page-description">Choose what to follow and how often to look for new headlines.</p></div></div><form id="settings-form"><section class="panel settings-panel"><div class="settings-heading"><div><h2>Collection schedule</h2><p>TechBrief checks for updates while this collector is running.</p></div></div><label for="interval">Check every</label><div class="interval-input"><input id="interval" type="number" min="5" max="1440" step="1" required><span>minutes</span></div><p id="next-scan" class="small muted">Next check time will appear here.</p></section><section class="panel settings-panel"><div class="settings-heading"><div><h2>Companies to follow</h2><p>Match headlines to your selected companies. Choose at least one company.</p></div><button type="button" id="select-companies" class="text-button">Select all</button></div><div id="company-options" class="choice-grid"><p class="muted">Loading companies…</p></div></section><section class="panel settings-panel"><div class="settings-heading"><div><h2>News sources</h2><p>Pick at least one feed for your collection.</p></div></div><div id="source-options" class="source-options"><p class="muted">Loading sources…</p></div></section><div class="settings-save"><p id="settings-message" class="muted" role="status">Changes apply after you save.</p><button class="button button-primary" type="submit">Save preferences</button></div></form></section>
+
+      <footer class="footer"><span>TechBrief <span id="app-version"></span></span><span>Collected from publishers. Read the original for the full story.</span></footer>
+    </main>
+  </div>
+</body>
+</html>
